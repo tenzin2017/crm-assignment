@@ -54,7 +54,12 @@ class CRM
       print 'Enter a Note: '
       note = gets.chomp
 
-      Contact.create(first_name, last_name, email, note)
+      contact = Contact.create(
+      first_name: first_name,
+      last_name: last_name,
+      email:    email,
+      note:      note
+      )
   end
 
   def modify_existing_contact
@@ -102,10 +107,14 @@ class CRM
 
 
   def delete_contact
+    array = Contact.all
    puts "Enter the ID number"
    user_input = gets.chomp.to_i
-   Contact.all.delete_if do |contact|
-     contact.id == user_input
+    array.each do |contact|
+     if contact.id == user_input
+       array.delete(contact)
+     end
+     puts contact
    end
   end
 
