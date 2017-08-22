@@ -151,6 +151,12 @@ class CRM
 
 end
 
+at_exit do
+  ActiveRecord::Base.connection.close
+end
+
+
+
 a_crm_app = CRM.new("My CRM app")
 a_crm_app.main_menu
 # a_crm_app.search_by_choice(1)
