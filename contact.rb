@@ -1,3 +1,7 @@
+gem 'activerecord', '=4.2.9'
+require 'active_record'
+require 'mini_record'
+
 class Contact
 
   @@contacts = []
